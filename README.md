@@ -10,7 +10,7 @@ Mobile application to manage your bank purchases. You get the statements in real
 - [x] Investigate Android permissions (to see if it's even possible to read text messages when not running the app).
 - [x] Initialize the project.
 - [x] Recognize that text messages are being received outside the application.
-### Adding main feature
+### Adding the main feature
 - [ ] Parse the text messages to recognize if they come from a bank and get the amount paid.
 - [ ] Save the amount as a persistable value and sum the value of new messages.
 ### Adding personalization
