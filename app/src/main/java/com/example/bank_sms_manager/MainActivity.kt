@@ -1,10 +1,7 @@
 package com.example.bank_sms_manager
 
-import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.provider.Telephony
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -17,7 +14,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.bank_sms_manager.databinding.ActivityMainBinding
-import com.example.banksmsparser.Constants
 
 class MainActivity : AppCompatActivity() {
 

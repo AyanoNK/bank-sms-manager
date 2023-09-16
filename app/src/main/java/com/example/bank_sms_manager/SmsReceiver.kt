@@ -1,4 +1,4 @@
-package com.example.banksmsparser
+package com.example.bank_sms_manager
 
 import android.content.Context
 import android.content.pm.PackageManager

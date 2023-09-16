@@ -2,12 +2,8 @@ package com.example.bank_sms_manager
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
-import android.content.ComponentName
 import android.content.Context
-import android.content.pm.PackageManager
-import android.provider.Telephony
 import android.widget.RemoteViews
-import com.example.banksmsparser.SmsReceiver
 
 /**
  * Implementation of App Widget functionality.
@@ -39,6 +35,8 @@ private fun updateAppWidget(
     appWidgetId: Int
 ) {
     val messageCount = SmsReceiver.getMessagesCount(context)
+    println("messageCount")
+    println(messageCount)
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.bank_metrics_widget)
     views.setTextViewText(R.id.appwidget_text, messageCount.toString())
