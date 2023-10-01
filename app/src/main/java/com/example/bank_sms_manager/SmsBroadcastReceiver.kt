@@ -31,8 +31,11 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
         for (appWidgetId in appWidgetIds) {
             val views = RemoteViews(context.packageName, R.layout.bank_metrics_widget)
             val messageCount = SmsReceiver.getMessagesCount(context)
+            val lastMessageParse = SmsReceiver.getLastMessageTransaction(context)
             println("MESSAGE COUNT")
             println(messageCount)
+            println("LAST MESSAGE PARSE")
+            println(lastMessageParse)
             views.setTextViewText(R.id.appwidget_text, messageCount.toString())
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
