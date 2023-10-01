@@ -38,6 +38,7 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
             println(lastMessageParse)
             views.setTextViewText(R.id.appwidget_text, messageCount.toString())
             appWidgetManager.updateAppWidget(appWidgetId, views)
+
         }
     }
 }
