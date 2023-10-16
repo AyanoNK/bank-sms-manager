@@ -1,5 +1,8 @@
 package com.example.bank_sms_manager
 
+import com.example.bank_sms_manager.data.DataBankInvoice
+import java.time.format.DateTimeFormatter
+
 
 class BankSMSMessageParser {
     companion object {
@@ -14,7 +17,18 @@ class BankSMSMessageParser {
                 it?.replace("\\.", "")?.replace("$", "")
                 it?.substring(0, it.length - 6)
             }
-            val date = datePattern.find(text)?.value
+
+
+            val inputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+
+            var date = datePattern.find(text)?.value
+
+            if (date != null) {
+                val parsedDate = inputFormatter.parse(date)
+                date = outputFormatter.format(parsedDate)
+            }
+
             val hour = hourPattern.find(text)?.value
 
 

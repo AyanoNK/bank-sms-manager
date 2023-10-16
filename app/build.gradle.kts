@@ -58,4 +58,8 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:$roomVersion")
+
+    // DataStore alternative while we figure what the hell is up with Room
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
 }

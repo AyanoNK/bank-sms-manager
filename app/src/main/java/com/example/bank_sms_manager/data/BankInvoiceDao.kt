@@ -17,6 +17,14 @@ interface BankInvoiceDao {
     @Query("SELECT * FROM bank_invoices")
     fun getAllBankInvoices(): Flow<List<BankInvoice>>
 
+    // TODO: check how to make this query work from 15th to 15th
+    @Query("SELECT SUM(purchaseValue) from bank_invoices WHERE date >= date('now', 'start of month')")
+    fun getBankInvoicesTotal(): Flow<Int>
+
+    // get bank invoices from last month
+//    @Query("SELECT SUM(purchaseValue), date('now', 'start of month', '-1 day') from bank_invoices WHERE date >= date('now', 'start of month', '-1 month') AND date < date('now', 'start of month')")
+//    fun getBankInvoicesTotalLastMonth(): Flow<Int>
+
     @Query("SELECT * FROM bank_invoices WHERE id = :id")
     fun getBankInvoice(id: Int): Flow<BankInvoice>
 

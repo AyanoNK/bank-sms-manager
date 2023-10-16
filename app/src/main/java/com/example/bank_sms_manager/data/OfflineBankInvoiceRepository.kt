@@ -7,6 +7,8 @@ class OfflineBankInvoiceRepository(private val bankInvoiceDao: BankInvoiceDao) :
     override fun getAllBankInvoicesStream(): Flow<List<BankInvoice>> =
         bankInvoiceDao.getAllBankInvoices()
 
+    override fun getBankInvoicesTotal(): Flow<Int> = bankInvoiceDao.getBankInvoicesTotal()
+
     override fun getBankInvoice(id: Int): Flow<BankInvoice?> = bankInvoiceDao.getBankInvoice(id)
 
     override suspend fun insertBankInvoice(bankInvoice: BankInvoice) =
