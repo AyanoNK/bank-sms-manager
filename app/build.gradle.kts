@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bank_sms_manager"
-    compileSdk = 33
+    namespace = "com.ayano.bank_sms_manager"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.bank_sms_manager"
+        applicationId = "com.ayano.bank_sms_manager"
         minSdk = 29
-        targetSdk = 33
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
