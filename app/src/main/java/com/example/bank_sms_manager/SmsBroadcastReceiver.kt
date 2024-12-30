@@ -70,6 +70,7 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
         }
 
     private fun parseToDataBankInvoice(lastMessageParse: Map<String, String?>): BankInvoice {
+        println(lastMessageParse)
         val bankName = lastMessageParse["bankName"] ?: ""
         val purchaseValue = lastMessageParse["purchaseValue"] ?: ""
         val purchaseReference = lastMessageParse["purchaseReference"] ?: ""

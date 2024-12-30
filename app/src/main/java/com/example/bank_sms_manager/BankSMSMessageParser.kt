@@ -7,17 +7,15 @@ import java.time.format.DateTimeFormatter
 class BankSMSMessageParser {
     companion object {
         fun extractBancolombiaData(text: String): Map<String, String?> {
-            val purchaseValuePattern = "\\$\\d+\\.\\d+".toRegex()
-            val purchaseReferencePattern = "(?<=en\\s)([^.]+)".toRegex()
+            val purchaseValuePattern = "COP(\\d{1,3}(\\.\\d{3}))".toRegex()
+            val purchaseReferencePattern = "en\\s([A-Z]+(?:\\s[A-Z]+)*)".toRegex()
             val datePattern = "\\d{2}/\\d{2}/\\d{4}".toRegex()
             val hourPattern = "\\d{2}:\\d{2}".toRegex()
 
             val bankName = "Bancolombia"
             val purchaseReference = purchaseReferencePattern.find(text)?.value.let {
-                it?.replace("\\.", "")?.replace("$", "")
-                it?.substring(0, it.length - 6)
+                it?.replace("en ", "")
             }
-
 
             val inputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
             val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -33,9 +31,8 @@ class BankSMSMessageParser {
 
 
             // transform purchaseValue to number
-            val purchaseValueMatch = purchaseValuePattern.find(text)?.value
-            val purchaseValue = purchaseValueMatch?.let {
-                it?.replace("\\.", "")?.replace("$", "")?.replace(".", "")
+            val purchaseValue = purchaseValuePattern.find(text)?.value.let {
+                it?.replace(".", "")?.replace("COP", "")
             }
 
             return mapOf(

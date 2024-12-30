@@ -33,6 +33,7 @@ class SmsReceiver {
         }
 
         fun getLastMessageTransaction(context: Context): Map<String, String?> {
+            println("Entering getLastMessageTransaction")
 
             val permission = android.Manifest.permission.READ_SMS
             val grant = context.checkSelfPermission(permission)
