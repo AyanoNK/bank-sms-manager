@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">bank-sms-manager</string>
+    <string name="app_name">Bank SMS Manager</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -43,9 +43,10 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="appwidget_text">0</string>
+    <string name="appwidget_value_total">0</string>
+    <string name="appwidget_last_purchase">Last purchase</string>
     <string name="add_widget">Add widget</string>
-    <string name="app_widget_description">This is an app widget description</string>
+    <string name="app_widget_description">Widget to show spend total and latest purchase</string>
     <string name="bancolombia">Bancolombia</string>
-    <string name="davivienda">Bancolombia</string>
+    <string name="davivienda">Davivienda</string>
 </resources>

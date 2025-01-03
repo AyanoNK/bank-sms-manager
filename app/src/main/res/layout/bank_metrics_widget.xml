@@ -8,23 +8,18 @@
     android:theme="@style/Theme.Banksmsmanager.AppWidgetContainer">
 
     <TextView
-        android:id="@+id/appwidget_text"
-        style="@style/Widget.Banksmsmanager.AppWidget.InnerView"
-        android:layout_width="395dp"
+        android:id="@+id/appwidget_value_total"
+        style="@style/Widget.Banksmsmanager.AppWidget.Container.ValueTotal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="#00000000"
-        android:contentDescription="@string/appwidget_text"
-        android:gravity="center"
-        android:text="@string/appwidget_text"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold|italic" />
-
+        android:text="@string/appwidget_value_total"
+    />
+    <TextView
+        android:id="@+id/appwidget_last_purchase"
+        style="@style/Widget.Banksmsmanager.AppWidget.Container.LastPurchase"
+        android:layout_width="match_parent"
+        android:layout_below="@id/appwidget_value_total"
+        android:layout_height="wrap_content"
+        android:text="@string/appwidget_last_purchase"
+        />
 </RelativeLayout>

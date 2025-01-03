@@ -51,14 +51,12 @@ private fun updateAppWidget(
                 BankInvoiceDatabase.getDatabase(context).bankInvoiceDao()
             )
         }
+
         val total = bankInvoiceRepository.getBankInvoicesTotal()
         total.collect {
             val moneyValue = CurrencyFormatter.formatCurrency(it)
-            views.setTextViewText(R.id.appwidget_text, moneyValue)
+            views.setTextViewText(R.id.appwidget_value_total, moneyValue)
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
-
-
-
 }

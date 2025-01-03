@@ -56,7 +56,7 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
                 val thisMonthTotal = bankInvoiceRepository.getBankInvoicesTotal()
                 thisMonthTotal.collect {
                     val moneyValue = CurrencyFormatter.formatCurrency(it)
-                    views.setTextViewText(R.id.appwidget_text, moneyValue)
+                    views.setTextViewText(R.id.appwidget_value_total, moneyValue)
                     appWidgetManager.updateAppWidget(appWidgetId, views)
                 }
             }

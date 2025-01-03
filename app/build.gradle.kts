@@ -7,14 +7,12 @@ plugins {
 android {
     namespace = "com.ayano.bank_sms_manager"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.ayano.bank_sms_manager"
-        minSdk = 29
+        minSdk = 31
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-
+        versionCode = 3
+        versionName = "1.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 

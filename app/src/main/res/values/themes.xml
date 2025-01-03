@@ -21,4 +21,7 @@
         <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
         <item name="appWidgetPadding">16dp</item>
     </style>
+    <style name="Theme.Banksmsmanager.AppWidgetContainer.Text" parent="android:Widget.TextView" >
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>
