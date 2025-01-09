@@ -39,6 +39,9 @@ interface BankInvoiceDao {
     @Query("SELECT * FROM bank_invoices WHERE id = :id")
     fun getBankInvoice(id: Int): Flow<BankInvoice>
 
+    @Query("SELECT * FROM bank_invoices ORDER BY id DESC LIMIT 1")
+    fun getLatestBankInvoice(): Flow<BankInvoice>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(bankInvoice: BankInvoice)
 

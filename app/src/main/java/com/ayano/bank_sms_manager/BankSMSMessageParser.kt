@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter
 class BankSMSMessageParser {
     companion object {
         fun extractBancolombiaData(text: String): Map<String, String?> {
-            val purchaseValuePattern = "COP(\\d{1,3}(\\.\\d{3}))".toRegex()
+            val purchaseValuePattern = "COP\\d+(?:\\.\\d+)*".toRegex()
             val purchaseReferencePattern = "en\\s([A-Z]+(?:\\s[A-Z]+)*)".toRegex()
             val datePattern = "\\d{2}/\\d{2}/\\d{4}".toRegex()
             val hourPattern = "\\d{2}:\\d{2}".toRegex()

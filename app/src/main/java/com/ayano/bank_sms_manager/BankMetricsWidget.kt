@@ -52,11 +52,24 @@ private fun updateAppWidget(
             )
         }
 
+        val latestInvoice = bankInvoiceRepository.getLatestBankInvoice()
         val total = bankInvoiceRepository.getBankInvoicesTotal()
-        total.collect {
-            val moneyValue = CurrencyFormatter.formatCurrency(it)
-            views.setTextViewText(R.id.appwidget_value_total, moneyValue)
-            appWidgetManager.updateAppWidget(appWidgetId, views)
+
+        launch {
+            latestInvoice.collect {
+                val latestInvoiceReference = it?.purchaseReference
+                views.setTextViewText(R.id.appwidget_last_purchase, latestInvoiceReference)
+                appWidgetManager.updateAppWidget(appWidgetId, views)
+            }
+        }
+
+        launch {
+            total.collect {
+                val moneyValue = CurrencyFormatter.formatCurrency(it)
+                views.setTextViewText(R.id.appwidget_value_total, moneyValue)
+                appWidgetManager.updateAppWidget(appWidgetId, views)
+            }
         }
     }
 }
+

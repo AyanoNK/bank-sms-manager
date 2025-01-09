@@ -53,6 +53,7 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
                     )
                 }
                 bankInvoiceRepository.insertBankInvoice(bankInvoice)
+
                 val thisMonthTotal = bankInvoiceRepository.getBankInvoicesTotal()
                 thisMonthTotal.collect {
                     val moneyValue = CurrencyFormatter.formatCurrency(it)
