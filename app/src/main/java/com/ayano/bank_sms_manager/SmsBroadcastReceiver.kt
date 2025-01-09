@@ -55,10 +55,21 @@ class SmsBroadcastReceiver : BroadcastReceiver() {
                 bankInvoiceRepository.insertBankInvoice(bankInvoice)
 
                 val thisMonthTotal = bankInvoiceRepository.getBankInvoicesTotal()
-                thisMonthTotal.collect {
-                    val moneyValue = CurrencyFormatter.formatCurrency(it)
-                    views.setTextViewText(R.id.appwidget_value_total, moneyValue)
-                    appWidgetManager.updateAppWidget(appWidgetId, views)
+                val latestInvoice = bankInvoiceRepository.getLatestBankInvoice()
+
+                launch {
+                    latestInvoice.collect {
+                        val latestInvoiceReference = it?.purchaseReference
+                        views.setTextViewText(R.id.appwidget_last_purchase, latestInvoiceReference)
+                        appWidgetManager.updateAppWidget(appWidgetId, views)
+                    }
+                }
+                launch {
+                    thisMonthTotal.collect {
+                        val moneyValue = CurrencyFormatter.formatCurrency(it)
+                        views.setTextViewText(R.id.appwidget_value_total, moneyValue)
+                        appWidgetManager.updateAppWidget(appWidgetId, views)
+                    }
                 }
             }
 

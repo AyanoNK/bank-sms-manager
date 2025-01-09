@@ -7,6 +7,7 @@ class BankSMSMessageParser {
     companion object {
         fun extractBancolombiaData(text: String): Map<String, String?> {
             val purchaseValuePattern = "COP\\d+(?:\\.\\d+)*".toRegex()
+            // TODO: better pattern to get all names between En and Con
             val purchaseReferencePattern = "en\\s([A-Z]+(?:\\s[A-Z]+)*)".toRegex()
             val datePattern = "\\d{2}/\\d{2}/\\d{4}".toRegex()
             val hourPattern = "\\d{2}:\\d{2}".toRegex()
