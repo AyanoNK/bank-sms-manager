@@ -11,12 +11,13 @@ Mobile application to manage your bank purchases. You get the statements in real
 - [x] Initialize the project.
 - [x] Recognize that text messages are being received outside the application.
 ### Adding the main feature
-- [ ] Parse the text messages to recognize if they come from a bank and get the amount paid.
-- [ ] Save the amount as a persistable value and sum the value of new messages.
+- [x] Parse the text messages to recognize if they come from a bank and get the amount paid.
+- [x] Save the amount as a persistable value and sum the value of new messages.
+- [x] Display the total amount for a period of time (a month for now) on a Widget.
 ### Adding personalization
-- [ ] To the text messaging, add parsing of timestamp, bank name, and purchase concept.
+- [x] To the text messaging, add parsing of timestamp, bank name, and purchase concept.
 - [ ] Within the main app, add a CRUD for messages. We can't be sure that parsing was 100% effective, so I should be able to add my own SMS messages if any were missed, or if any were incorrectly added.
-- [ ] Add stylings to the app.
+- [ ] Add styles to the app.
 ### Expanding database realms
 - [ ] Add authentication with TO BE DETERMINED auth provider (Firebase/Supabase probs). This will happen in a separate repository.
 - [ ] Sync data between the app and the new backend service.
