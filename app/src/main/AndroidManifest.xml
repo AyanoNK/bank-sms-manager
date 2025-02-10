@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Banksmsmanager"
        >
         <receiver
-            android:name=".BankMetricsWidget"
+            android:name=".receivers.BankMetricsWidgetReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -28,7 +28,7 @@
                 android:resource="@xml/bank_metrics_widget_info" />
         </receiver>
         <receiver
-            android:name=".SmsBroadcastReceiver"
+            android:name=".receivers.SmsBroadcastReceiver"
             android:permission="android.permission.READ_SMS"
             android:enabled="true"
             android:exported="true">
@@ -36,6 +36,7 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
 
         <activity
             android:name=".MainActivity"

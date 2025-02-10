@@ -19,22 +19,23 @@ interface BankInvoiceDao {
 
     // TODO: move this to user logic and not a burned SQL query
     // Pass in params like getBankInvoicesTotal(start_date: String, end_date: String)
-    @Query("WITH TODAY AS (\n" +
+    @Query("WITH DATE_RANGE AS (\n" +
             "    SELECT\n" +
-            "    CASE \n" +
-            "        WHEN CAST(strftime('%d', 'now') AS INT) < 15 \n" +
-            "        THEN date('now', 'start of month', '-1 month', '+14 days')\n" +
-            "        ELSE date('now', 'start of month', '+14 days') \n" +
-            "    END AS START_TIME,\n" +
-            "    CASE \n" +
-            "        WHEN CAST(strftime('%d', 'now') AS INT) < 15 \n" +
-            "        THEN date('now', 'start of month', '+14 days')\n" +
-            "        ELSE date('now', 'start of month', '+1 month', '+14 days') \n" +
-            "    END AS END_TIME\n" +
+            "date('now', 'start of month') AS START_TIME,\n" +
+            "date('now', 'start of month', '+1 month', '-1 days') AS END_TIME\n" +
             ")\n" +
-            "SELECT DISTINCT SUM(purchaseValue)  from bank_invoices, TODAY\n" +
-            "WHERE date >= TODAY.START_TIME AND date < TODAY.END_TIME")
+            "SELECT DISTINCT SUM(purchaseValue)  from bank_invoices, DATE_RANGE\n" +
+            "WHERE date >= DATE_RANGE.START_TIME AND date < DATE_RANGE.END_TIME")
     fun getBankInvoicesTotal(): Flow<Int>
+
+    @Query("WITH DATE_RANGE AS (\n" +
+            "    SELECT\n" +
+            "date('now', 'start of month', '-1 day', 'start of month') AS START_TIME,\n" +
+            "date('now', 'start of month', '-1 day') AS END_TIME\n" +
+            ")\n" +
+            "SELECT DISTINCT SUM(purchaseValue)  from bank_invoices, DATE_RANGE\n" +
+            "WHERE date >= DATE_RANGE.START_TIME AND date < DATE_RANGE.END_TIME")
+    fun getLastMonthBankInvoicesTotal(): Flow<Int>
 
     @Query("SELECT * FROM bank_invoices WHERE id = :id")
     fun getBankInvoice(id: Int): Flow<BankInvoice>

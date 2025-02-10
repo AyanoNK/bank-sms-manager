@@ -7,19 +7,19 @@
     android:background="@drawable/app_widget_border"
     android:theme="@style/Theme.Banksmsmanager.AppWidgetContainer">
 
-    <TextView
-        android:id="@+id/appwidget_value_total"
-        style="@style/Widget.Banksmsmanager.AppWidget.Container.ValueTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/appwidget_value_total"
-    />
-    <TextView
-        android:id="@+id/appwidget_last_purchase"
-        style="@style/Widget.Banksmsmanager.AppWidget.Container.LastPurchase"
-        android:layout_width="match_parent"
-        android:layout_below="@id/appwidget_value_total"
-        android:layout_height="wrap_content"
-        android:text="@string/appwidget_last_purchase"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/appwidget_value_total"-->
+<!--        style="@style/Widget.Banksmsmanager.AppWidget.Container.ValueTotal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/appwidget_value_total"-->
+<!--    />-->
+<!--    <TextView-->
+<!--        android:id="@+id/appwidget_last_purchase"-->
+<!--        style="@style/Widget.Banksmsmanager.AppWidget.Container.LastPurchase"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_below="@id/appwidget_value_total"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/appwidget_last_purchase"-->
+<!--        />-->
 </RelativeLayout>
