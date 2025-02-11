@@ -12,8 +12,8 @@ android {
         applicationId = "com.ayano.bank_sms_manager"
         minSdk = 31
         targetSdk = 35
-        versionCode = 5
-        versionName = "1.4"
+        versionCode = 6
+        versionName = "1.5"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
