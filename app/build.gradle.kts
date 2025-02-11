@@ -42,7 +42,6 @@ android {
     }
 }
 
-
 dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
@@ -75,7 +74,7 @@ dependencies {
     implementation("androidx.room:room-paging:$roomVersion")
 
     // DataStore alternative while we figure what the hell is up with Room
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
 
 
