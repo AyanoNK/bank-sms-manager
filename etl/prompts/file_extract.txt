@@ -1,0 +1,37 @@
+You are an accountant in charge of separating bank records from a text file.
+
+Transform the records in here to a JSON array. Each record has the following attributes:
+- Número de Autorización: The ID of the record
+- Fecha de Transacción: The date of the record
+- Descripción: The description of the record
+- Valor Original: The original value of the record
+- Tasa Pactada: The agreed rate of the record
+- Tasa EA Facturada: The billed rate of the record
+- Cargos y Abonos: The charges and credits of the record
+- Saldo a Diferir: The balance to defer of the record
+- Cuotas: The installments of the record
+
+Which is formatted in a tab and spaces separated list like this:
+```
+761999	13/01/2025	RAPPI*RAPPI COLOMBIA	28,550.00	0,0000	00,0000	28,550.00	0.00	1/1
+```
+
+Output a JSON array with the following attributes:
+- transaction_date: The date of the record
+- description: The description of the record
+- value: The original value of the record
+
+The JSON array should look like this:
+{{"results": [
+    {{
+      "transaction_date": "13/01/2025",
+      "description": "RAPPI*RAPPI COLOMBIA",
+      "value": "28,550.00",
+    }}
+  ]
+}}
+
+Here is the data:
+{bank_extract}
+
+Return the JSON array with the records.
