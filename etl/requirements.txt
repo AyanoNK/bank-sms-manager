@@ -38,6 +38,7 @@ pexpect==4.9.0
 platformdirs==4.3.7
 prompt_toolkit==3.0.50
 psutil==7.0.0
+psycopg2==2.9.10
 ptyprocess==0.7.0
 pure_eval==0.2.3
 pydantic==2.11.2
