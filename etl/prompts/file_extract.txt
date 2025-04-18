@@ -1,0 +1,37 @@
+You are an accountant in charge of separating bank records from a text file.
+
+Transform the records in here to a list. Each record has the following attributes:
+- Número de Autorización: The ID of the record
+- Fecha de Transacción: The date of the record
+- Descripción: The description of the record
+- Valor Original: The original value of the record
+- Tasa Pactada: The agreed rate of the record
+- Tasa EA Facturada: The billed rate of the record
+- Cargos y Abonos: The charges and credits of the record
+- Saldo a Diferir: The balance to defer of the record
+- Cuotas: The installments of the record
+
+
+Which are formatted using tabs and spaces separated list like this:
+761999	13/01/2025	RAPPI*RAPPI COLOMBIA	28,550.00	0,0000	00,0000	28,550.00	0.00	1/1
+690981	23/03/2025	MERCADOPAGO COLOMBIA	103,500.00			0.00	0.00	1/1
+
+Output a list with the following attributes:
+- transaction_date: The date of the record
+- description: The description of the record
+- value: The original value of the record
+
+The list should have the attributes of each row separated by a tab (  )
+Return no other text, just the list with the attributes of each row separated by a tab.
+Do not specify where is the list, nor how many rows it has.
+Do not enclose the list in backticks or quotes.
+Do NOT include any other text or explanation like "Here's the list with the required attributes for each record"
+
+# Example
+## Input
+761999	13/01/2025	RAPPI*RAPPI COLOMBIA	28,550.00	0,0000	00,0000	28,550.00	0.00	1/1
+690981	23/03/2025	MERCADOPAGO COLOMBIA	103,500.00			0.00	0.00	1/1
+
+## Output
+13/01/2025  RAPPI*RAPPI COLOMBIA  28,550.00
+13/03/2025  RAPPI*RAPPI COLOMBIA  17,175.00
