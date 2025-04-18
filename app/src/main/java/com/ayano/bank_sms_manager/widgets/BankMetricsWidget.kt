@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
-import androidx.glance.ImageProvider
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
@@ -57,7 +56,7 @@ class BankMetricsWidget : GlanceAppWidget() {
 
 
         // TODO: put breakpoints somewhere else. Hopefully changeable in the app
-        val budgetLimit = 5000000
+        val budgetLimit = 6000000
 
         // max division at 1
         val percentage =
@@ -67,7 +66,7 @@ class BankMetricsWidget : GlanceAppWidget() {
             from = green, to = red, percent = percentage
         )
 
-        val gradientBitmap = createGradientBitmap(300, 300, green.toArgb(), red.toArgb())
+        val gradientBitmap = createGradientBitmap(200, 300, green.toArgb(), red.toArgb())
 
         return Column(
 //            modifier = GlanceModifier.fillMaxSize().background(ImageProvider(gradientBitmap)),
@@ -79,23 +78,36 @@ class BankMetricsWidget : GlanceAppWidget() {
             // TODO: custom font with canvas
             // https://proandroiddev.com/jetpack-glance-no-way-to-custom-fonts-e761b789567d
             GlanceText(
-                text = "You have spent",
-                fontSize = 12.sp,
-            )
-            GlanceText(
                 text = CurrencyFormatter.formatCurrency(currentMonthtotal.value),
                 fontSize = 24.sp,
             )
             GlanceText(
-                text = "out of ${CurrencyFormatter.formatCurrency(budgetLimit)}",
+                text = "out of ${CurrencyFormatter.formatCurrency(budgetLimit)} (${
+                    (percentage).times(
+                        100
+                    ).toInt()
+                }%)",
+                fontSize = 12.sp,
+            )
+            GlanceText(
+                text = "${CurrencyFormatter.formatCurrency(budgetLimit - currentMonthtotal.value)} left (${
+                    (1 - percentage).times(
+                        100
+                    ).toInt()
+                }%)",
                 fontSize = 12.sp,
             )
 
             if (lastInvoice.value != null) {
                 GlanceText(
-                    text = lastInvoice.value!!.purchaseReference,
+                    text = "${lastInvoice.value!!.purchaseReference}: ${
+                        CurrencyFormatter.formatCurrency(
+                            lastInvoice.value!!.purchaseValue
+                        )
+                    }",
                     fontSize = 12.sp,
                 )
+
 
             } else {
                 GlanceText(
