@@ -8,14 +8,14 @@ class BankSMSMessageParser {
         fun extractBancolombiaData(text: String): Map<String, String?> {
             val purchaseValuePattern = "COP\\d+(?:\\.\\d+)*".toRegex()
             // TODO: better pattern to get all names between En and Con
-            val purchaseReferencePattern = "en\\s([A-Z]+(?:\\s[A-Z]+)*)".toRegex()
+            val purchaseReferencePattern = "en\\s([A-Za-z0-9\\*]+(?: [A-Za-z0-9]+)*)\\scon".toRegex()
             val datePattern = "\\d{2}/\\d{2}/\\d{4}".toRegex()
             val hourPattern = "\\d{2}:\\d{2}".toRegex()
 
             val bankName = "Bancolombia"
-            val purchaseReference = purchaseReferencePattern.find(text)?.value.let {
-                it?.replace("en ", "")
-            }
+
+            val matchResult = purchaseReferencePattern.find(text)
+            val purchaseReference = matchResult?.groupValues?.get(1)
 
             val inputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
             val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
